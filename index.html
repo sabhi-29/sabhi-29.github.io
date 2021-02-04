@@ -79,7 +79,48 @@
     <!-- hero
     ================================================== -->
     <section id="hero" class="s-hero target-section" data-parallax="scroll" data-image-src="images/mainpage_mainimage.jpg" data-natural-width=2985 data-natural-height=2021 data-position-y=center>
-
+        <div class="row hero-content">
+        <p><h1>
+                Hello,  <br> 
+                I'm Abhishek Sharma, <br>
+                a final year undergraduate <br>
+                at IIT Kanpur. <br>
+                </h1>&nbsp;</p>
+            body {
+  margin:0px;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ddd;
+}
+.text-typing {
+  padding:20px 30px;
+  background:#f5f5f5;
+  font-size:35px;
+  font-family:monospace;
+  border-radius:50px;
+}
+.text-typing p {
+  margin:0px;
+  white-space:nowrap;
+  overflow:hidden;
+  animation:typing 4s steps(22,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+@keyframes blink {
+  0%,100% {
+    border-right:2px solid transparent;
+  }
+  50% {
+    border-right:2px solid #222;
+  }
+}        <!--
+        </div>
         <div class="row hero-content">
 
             <div class="column large-full">
@@ -103,7 +144,8 @@
                     </li>
                 </ul> <!-- end hero-social -->
 
-            </div> 
+            </div>             
+                                           -->
 
         </div> <!-- end hero-content -->
 
