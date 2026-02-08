@@ -1,549 +1,258 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
+
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-16">
-    <title>Abhishek Sharma</title>
-    <meta name="My mindspace?" content="My mindspace?">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/vendor.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="android-chrome-192x192.png" sizes="180x180" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="android-chrome-192x192.png">
-    <link rel="manifest" href="site.webmanifest">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Sharma - Data Scientist & ML Engineer</title>
+    <meta name="description"
+        content="Data Scientist & ML Engineer specializing in deep-learning recommendation systems for personalized marketing and decisioning.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png">
 </head>
 
-<body id="top">
+<body>
 
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader" class="dots-fade">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <img src="android-chrome-192x192.png" alt="Loading...">
     </div>
 
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-profile">
+                <img src="new_headshot.jfif" alt="Abhishek Sharma" class="sidebar-photo">
+                <div class="sidebar-name">Abhishek Sharma</div>
+                <div class="sidebar-title">Data Scientist & ML Engineer</div>
+            </div>
 
-        <div class="header-logo">
-            <a href="index.html">
-                <img src="images/logo.svg" alt="Homepage">
-            </a>
-        </div>
-
-        <div class="header-content">
-    
-            <nav class="row header-nav-wrap">
-                <ul class="header-nav">
-                    <li><a class="smoothscroll" href="#hero" title="Homepage">Homepage</a></li>
-                    <li><a class="smoothscroll" href="#about" title="About">About</a></li>
-                    <li><a class="smoothscroll" href="#services" title="Thoughts">Thoughts</a></li>
-                    <li><a href="#mailto:#0" title="Contact">Contact</a></li>
-                    <li><a class="btn btn--stroke btn--small" href="resume_sharma_abhishek.pdf" title="Resume">Resume</a></li>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="personal.html">Personal</a></li>
+                    <li><a href="Resume_Jan25.pdf">Resume</a></li>
                 </ul>
-            </nav> <!-- end header-nav-wrap -->
+            </nav>
 
-          
+            <ul class="sidebar-social">
+                <li><a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a></li>
+                <li><a href="https://github.com/sabhi-29">GitHub</a></li>
+                <li><a href="https://twitter.com/abhidiculous">X</a></li>
+                <li><a href="mailto:abhishariitk@gmail.com">Email</a></li>
+            </ul>
+        </aside>
 
-        </div> <!-- end header-content -->
-
-        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
-
-    </header> 
-
-
-    <!-- hero
-    ================================================== -->
-    <section id="hero" class="s-hero target-section" data-parallax="scroll" data-image-src="images/MIT-Neural-Networks-01_0.gif" data-natural-width=2700 data-natural-height=2000 data-position-y=center>
-        
-        <div class="row hero-content">
-
-            <div class="column large-full">
-                <h3 class="subhead" style = 'color:#FFFFFF;'>"And no one showed us to the land<br><br>
-                And no one knows the where's or why's<br><br>
-                But something stirs and something tries<br><br>
-                And starts to climb toward the light"<br><br>
-                <a href="https://youtu.be/53N99Nim6WE" title="">- Pink Floyd (Echoes) </a><br><br></h3>
-                <h1>
-                </h1>
-                
-                
-
-                <ul class="hero-social">
-                    <li>
-                        <a href="https://github.com/sabhi-29" title="">GitHub</a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/sabhi29/" title="">Linkedin</a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/abhidiculous/" title="">Instagram</a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/shar_abhi29" title="">Twitter</a>
-                    </li>
-                </ul> <!-- end hero-social -->
-
-            </div> 
-
-        </div> <!-- end hero-content -->
-
-        <div class="hero-scroll">
-            <a href="#about" class="scroll-link smoothscroll">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 24l-8-9h6v-15h4v15h6z"/></svg>
-            </a>
-        </div> <!-- end hero-scroll -->
-
-    </section> <!-- end s-hero -->
-
-<!--                                                                          Have edited till here on 03-02-2021                                          -->
-    <!-- about
-    ================================================== -->
-    
-    <section id="about" class="s-about target-section">
-
-        <div class="s-about__section s-about__section--profile">
-
-            <div class="right-vert-line"></div>
-
-            <div class="row">
-                <div class="column large-6 medium-8 tab-full">
-
-                    <div class="section-intro" data-num="01" data-aos="fade-up">
-                        <h3 class="subhead"></h3>
-                        <h1 class="display-1">About</h1>
-                    </div>
-
-                    <div class="profile-pic" data-aos="fade-up">
-                        <img src="WhatsApp Image 2023-02-22 at 4.31.59 PM.jpeg" 
-                             srcset="WhatsApp Image 2023-02-22 at 4.31.59 PM.jpeg" alt="">
-                    </div>
-
-                    <h3 data-aos="fade-up">About</h3>
-
-                    <p data-aos="fade-up">     
-                    Hi I am Abhishek Sharma currently pursuing the <a href="https://www.sas.rochester.edu/dsc/graduate/ms.html", style = 'color:#000000;'><u>MS in Data Science Program</u></a> at <a href="https://rochester.edu/", style = 'color:#000000;'><u>University of Rochester.</u></a> 
-                    I have done my Bachelors in Technology in Chemical Engineering from <a href="https://www.iitk.ac.in/", style = 'color:#000000;'><u>Indian Institute of Technology - Kanpur (IITK).</u></a>
-                    </p>
-                    
-                    <p data-aos="fade-up">
-                    I aim to pursue a career in data science and applied research and explore many applications cutting across Business Analytics, FinTech, and healthcare.
-                    </p>
-
-                    <p data-aos="fade-up">
-                    For the last two years, I have worked as an Associate Manager inchange of Digitization projects in the Supply Chain at <a href="https://www.vedantalimited.com/eng/", style = 'color:#000000;'><u>Vedanta Resources</u></a> for their <a href="https://vedantaaluminium.com/", style = 'color:#000000;'>Aluminum Business</a>. 
-                    During my undergraduate years, I pursued various advanced courses in Engineering and Finance, such as Financial Econometrics, Macro and Micro Economics, Transport Phenomena, and BioElectricity. I have explored my interest in Data Science through various corporate research projects and academic endeavors developing a keen interest in the field of data science.
-                    </p>
-                    
-                
-
-                </div>
-            </div>
-<!--                                                       Edited till here on 04-02-2021 15:31                                        -->
-        </div> <!-- end s-about__section--profile -->
-<div class="s-about__section">
-
-            <div class="row">
-                <div class="column">
-                    <h3 data-aos="fade-up">Professional and Research Experience</h3>
-                </div>
-            </div>
-
-            <div class="row block-large-1-2 block-900-full work-positions">
-                                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co"><a href="https://lopatkinlab.com/index.html", style = 'color:#000000;'> <img src="images/Lopatkin_Lab.png" alt="University of Rochester" style="width:42px;height:42px;"> </a></span>
-                                <span class="position__co"><a href="https://lopatkinlab.com/index.html", style = 'color:#000000;'> University of Rochester </a></span>
-                                <span class="position__pos">&nbsp;Graduate Research Assistant - Data Science Intern</span>
-                            </h6>
-                            <div class="position__timeframe">
-                                Oct 2023 - Present
-                            </div>
-                        </div>
-
-                        <p>
-                        Currently working with <a href="https://www.hajim.rochester.edu/che/people/faculty/lopatkin-allison/index.html", style = 'color:#000000;'><u>Dr. Allison Lopatkin</u> </a> developing novel plasmid annotation tool using NLP and bioinformatics to 
-                            enhance our understanding of Horizontal Gene Transfer (HGT) in living organisms.
-                        </p>
-                    </div>
-                </div> <!-- end column -->
-                
-
-                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co"><a href="https://vedantaaluminium.com/", style = 'color:#000000;'> <img src="images/vedanta logopng.png" alt="Vedanta Limited" style="width:42px;height:42px;"> </a></span>
-                                <span class="position__co"><a href="https://vedantaaluminium.com/", style = 'color:#000000;'> Vedanta Resources Limited  &nbsp;</a></span>
-                                <span class="position__pos">&nbsp; Associate Manager </span>
-                                
-                            </h6>
-                               <div class="position__timeframe">
-                                July 2021 - June 2023
-                            </div>
-                        </div>
-
-                        <p>
-                            Improved the efficiency of the entire Value Chain of Vedanta Aluminum Business by implementing digitization infrastructure and incorporating various modeling techniques.   
-                        
-                        </p>
-                    </div>
-                </div> <!-- end column -->
-                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co"><a href="https://www.kpit.com/", style = 'color:#000000;'> <img src="images/kpit logo.png" alt="KPIT Technologies Pvt. Ltd." style="width:42px;height:42px;"> </a></span>
-                                <span class="position__co"><a href="https://www.kpit.com/", style = 'color:#000000;'> KPIT Technologies Pvt. Ltd. </a></span>
-                                <span class="position__pos">&nbsp;Data Science Intern</span>
-                            </h6>
-                            <div class="position__timeframe">
-                                May 2020 - July 2020
-                            </div>
-                        </div>
-
-                        <p>
-                        Developed models to predict engine oil life in an automotive
-                        using deep learning and implementing the same in the engine control unit. Undergraduate corporate internship, remotely done due to COVID-19.
-                        </p>
-                    </div>
-                </div> <!-- end column -->
-                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co"><a href="https://www.iitk.ac.in/", style = 'color:#000000;'> <img src="images/IIT_Kanpur_Logo.svg.png" alt="IIT Kanpur" style="width:42px;height:42px;"></a> </span>
-                                <span class="position__co"><a href="https://www.iitk.ac.in/", style = 'color:#000000;'> IIT Kanpur</a> </span>
-                                <span class="position__pos">&nbsp;Undergraduate Research Assistant</span>
-                            </h6>
-                            
-                            <div class="position__timeframe">
-                                May 2019 - December 2020
-                            </div>
-                        </div>
-
-                        <p>
-                            Developed and applied deep learning algorithms and computer vision technology for detecting and tracking molecules in Active Matter and colloids for catalysis and reaction monitoring of the reactants with <a href="http://home.iitk.ac.in/~mangalr/", style = 'color:#000000;'><u>Dr. Rahul Mangal</u> </a>and <a href="https://www.iitk.ac.in/che/hsharma.htm", style = 'color:#000000;'><u>Dr. Himanshu Sharma. </u></a>
-                            </p>
-                    </div>
-                </div> <!-- end column -->
-                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co"><a href="https://tpu.ru/en/", style = 'color:#000000;'> <img src="images/TPU_new_logo_en.png" alt="Tomsk Polytechnic University " style="width:42px;height:42px;"></a> </span>
-                                <span class="position__co"><a href="https://tpu.ru/en/", style = 'color:#000000;'> Tomsk Polytechnic University </a> </span>
-                                <span class="position__pos">&nbsp; &nbsp;Research Fellow</span>
-                            </h6>
-                            
-                            <div class="position__timeframe">
-                                December 2019 - January 2020
-                            </div>
-                        </div>
-
-                        <p>
-                         The project I was involved in was developing and testing CNN solutions for real-time semantic segmentation of images for use on drones in Russia. Something similar to what Amazon is doing in the US.
-                        </p>
-                    </div>
-                </div> <!-- end column -->
-
-            </div> <!-- work positions -->
-
-        </div> <!-- end s-about__section -->
-
-    </section> <!-- end s-about -->
-
-
-       <!-- services
-    ================================================== -->
-    <section id="services" class="s-services target-section h-dark-bg">
-        
-        <div class="row s-services__content">
-
-            <div class="vert-line"></div>
-
-            <div class="column large-6 s-services__leftcol">
-                <div class="section-intro" data-num="02" data-aos="fade-up">
-                    <h3 class="subhead">Thoughts and Articles</h3>
-
-                    <h1 class="display-1">
-                    Writings
-                    </h1>
-                </div>
-
-                <p class="lead" data-aos="fade-up">
-                Usually comprising of short poems, short stories, 
-                sometimes experiences and learnings I write.
-                
+        <!-- Main Content -->
+        <main>
+            <section id="about">
+                <h1>About Me</h1>
+                <p>
+                    I am a Data Scientist & ML Engineer at <a href="https://quaerainsights.com/">QuaEra Insights</a>,
+                    specializing in deep-learning recommendation systems for personalized marketing and decisioning. I
+                    own the full ML lifecycle—from data ingestion and feature engineering to model development, rigorous
+                    evaluation, experimentation, and production deployment.
                 </p>
-            </div> <!-- end  s-services--leftcol -->
+                <p>
+                    At QuaEra, I improved Aignyte's AI decisioning platform for direct-mail and email campaigns,
+                    delivering a 200% response-rate lift and ~50% gains across five clients. Earlier at
+                    <a href="https://vedantaaluminium.com/">Vedanta</a>, I optimized procurement with forecasting models
+                    that saved $18M+ and boosted operational efficiency.
+                </p>
+                <p>
+                    I hold a Master's in Data Science from the <a href="https://rochester.edu/">University of
+                        Rochester</a> (4.0 GPA) and a B.Tech in
+                    Chemical Engineering from <a href="https://www.iitk.ac.in/">IIT Kanpur</a>.
+                </p>
+            </section>
 
-            <div class="column large-6">
-                <ul class="services-list" data-aos="fade-up">
-                    <li class="services-list__item is-active">
-                        
-                        <h3>
-                        <p><a href="https://abhi291099.medium.com/the-battle-4f70d8938401">The Battle</a></p>
-                        </h3>
-                        
-                    </li> <!-- services-list__item -->
-                    <li class="services-list__item is-active">
-                        
-                        <h3>
-                        <p><a href="https://abhi291099.medium.com/cosmic-friendship-8e7cde684d91">Cosmic Friendship</a></p>
-                        </h3>
-                        
-                    </li> <!-- services-list__item -->
-                   
-                </ul> <!-- end services-list -->
-            </div>
+            <section id="experience">
+                <h2>Experience</h2>
 
-        </div> <!-- s-services__content -->
-
-    </section> <!-- end s-services -->
-
-
-    <!-- portfolio
-    ================================================== -->
-    <section id="portfolio" class="s-portfolio target-section">
-
-        <div class="row s-portfolio__header">
-            <div class="column large-6 medium-8 tab-full">
-                <div class="section-intro" data-num="03" data-aos="fade-up">
-                    <h3 class="subhead">Photography Exhibition</h3>
-                    <h1 class="display-1">
-                        Handful picks   
-                    </h1>
-                </div>
-            </div>
-        </div> <!-- s-porfolio__header -->
-
-        <div class="row s-porfolio__list block-large-1-2 block-tab-full collapse">
-
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="27575265_182732342491614_2959502706286264320_n.jpg" title="Sexy Sexy Hall 3" data-size="1050x600">
-                            <img src="27575265_182732342491614_2959502706286264320_n.jpg" 
-                                 srcset="27575265_182732342491614_2959502706286264320_n.jpg" width=1050 height=600 alt="My favorite place at Campus">
-                        </a>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Data Scientist</span>
+                        <span class="experience-date">Apr 2025 - Present</span>
                     </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Sexy Sexy</div>
-                        <h4 class="folio-item__title">Hall 3</h4>
-                    </div>
-                    <a href="https://www.instagram.com/p/BfAPPu6FQWaFl8eDusy1dQ_X88VavUMEk9t5pY0/" title="Intel" class="folio-item__project-link">Link</a>
-                    <div class="folio-item__caption">
-                        <p>Aah this photo was a random click from my first year, yes saturation was higher but you know this place has been more than my home at IIT Kanpur.</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="40230140_537982330004968_8536922676992034736_n.jpg" title="Peacock" data-size="1050x600">
-                            <img src="40230140_537982330004968_8536922676992034736_n.jpg" 
-                                 srcset="40230140_537982330004968_8536922676992034736_n.jpg" width=1050 height=600 alt="Peacock">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Hidden </div>
-                        <h4 class="folio-item__title">Peacock</h4>
-                    </div>
-                    <a href="https://www.instagram.com/p/Bng_6i8BGgloIFDTn68JpO4OCDaPreN5wn6gks0/" title="Intel" class="folio-item__project-link">Link</a>
-                    <div class="folio-item__caption">
-                        <p>Needless to say if you enter the campus you are deemed to meet this majestic bird. I clicked it in June 2018 on the roof of Hall 3</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="83804213_195132721847227_8730246960916447551_n.jpg" Title="Rock and Roll" data-size="1050x600">
-                            <img src="83804213_195132721847227_8730246960916447551_n.jpg" 
-                                 srcset="83804213_195132721847227_8730246960916447551_n.jpg" width=1050 height=600 alt="The Local Train">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Antaragni</div>
-                        <h4 class="folio-item__title">Roll and Roll</h4>
-                    </div>
-                    <a href="https://www.instagram.com/p/B8WeOS8H0LDi2brwOyqg0N6pTzkQJTgolJpk4c0/" title="Intel" class="folio-item__project-link">Link</a>
-                    <div class="folio-item__caption">
-                        <p>Wow can't forget the Pronight when The Local Train performed. Had a great time meeting them face to face so this photo is a golden memoir for me.</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="EDIT 2.jpg" title="Paras Thakur" data-size="1050x600">
-                            <img src="EDIT 2.jpg" 
-                                 srcset="EDIT 2.jpg" width=1050 height=600 alt="PT">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Anataragni</div>
-                        <h4 class="folio-item__title">Paras Thakur</h4>
-                    </div>
-                    <a href="https://drive.google.com/drive/u/1/folders/1BkBRvlQbylvtgan2RVL7HfOairJlBEAb" title="Intel" class="folio-item__project-link">Link</a>
-                    <div class="folio-item__caption">
-                        <p>The greated Indian guitartist of our generation. Period. Met this guy that night, he's as good a human being as he's at guitar</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-
-        </div> <!-- folio-list -->
-
-    </section> <!-- end portfolio -->
-
-
-    <!-- testimonials
-    ================================================== -->
-    
-
-
-    </section> <!-- end s-testimonials -->
-
-
-    <!-- footer
-    ================================================== -->
-    <footer class="s-footer h-dark-bg">
-        
-        <div class="right-vert-line"></div>
-
-        <div class="row s-footer__main">
-            <div class="column large-6">
-                <div class="section-intro" data-aos="fade-up">
-                    <h3 class="subhead">Get In Touch</h3>
-
-                    <h1 class="display-1">
-                    If you find something buggy or have anything to say to me
-                    </h1>
+                    <div class="experience-company"><img src="images/QuaEra logo.jfif" alt="" class="company-logo"><a
+                            href="https://quaerainsights.com/">QuaEra Insights</a> · New York, NY, USA (Remote)</div>
+                    <ul>
+                        <li>Improved Aignyte's AI decisioning engine; delivered +200% lift in response rate for a
+                            Fortune 500 client</li>
+                        <li>Led five proof-of-value projects, achieving ~50% average improvement in response rates</li>
+                        <li>Built a proprietary "creative genome" system using LLMs (LangChain/LangGraph), XGBoost</li>
+                        <li>Managed end-to-end ML lifecycle on Azure Databricks and AWS</li>
+                    </ul>
                 </div>
 
-                <div class="footer-email-us">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScK4ebENJ7fWuwt3pRK7dIB6a2RiWiWWVT2c7hofXMT4xwD_Q/viewform?usp=sf_link" class="btn btn--primary h-full-width">Send it here</a>
-                </div>
-            </div>
-
-            <div class="column large-5">
-                <div class="footer-contacts">
-                    <div class="footer-contact-block" data-aos="fade-up">
-                        <h5 class="footer-contact-block__header">
-                            Email
-                        </h5>
-                        <p class="footer-contact-block__content">
-                            <a href="mailto: abhishariitk@gmail.com">abhishariitk@gmail.com</a>
-                        </p>
-                    </div> <!-- end footer-contact-block -->
-                    <div class="footer-contact-block" data-aos="fade-up">
-                        
-                        
-                    </div> <!-- end footer-contact-block -->
-                    <br>
-                    <div class="footer-contact-block" data-aos="fade-up">
-                        <h5 class="footer-contact-block__header">
-                            Social
-                        </h5>
-                        <ul class="footer-contact-block__list">
-                            <li><a href="https://www.linkedin.com/in/abhishek-sharma-a89564173/">LinkedIn</a></li>
-                            <li><a href="https://www.instagram.com/abhidiculous/">Instagram</a></li>
-                            <li><a href="https://www.facebook.com/profile.php?id=100002465308961">Facebook</a></li>
-                            <li><a href="https://twitter.com/shar_abhi29">Twitter</a></li>
-                        </ul>
-                    </div> <!-- end footer-contact-block -->
-                </div>
-            </div>
-        </div> <!-- end s-footer__main -->
-
-        <div class="row s-footer__bottom">
-            <div class="column large-full ss-copyright">
-                <span>© Copyright Abhishek Sharma (2023)</span> 
-                
-            </div> <!-- end ss-copyright -->
-
-            <div class="ss-go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
-                </a>
-            </div> <!-- end ss-go-top -->
-        </div> <!-- end s-footer__bottom -->
-
-    </footer> <!-- end s-footer -->
-
-
-    <!-- photoswipe background
-    ================================================== -->
-    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
-
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
-                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
-                    "Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Graduate Research Assistant</span>
+                        <span class="experience-date">Oct 2023 - Jan 2025</span>
                     </div>
+                    <div class="experience-company"><img src="images/Lopatkin_Lab.png" alt="" class="company-logo"><a
+                            href="https://lopatkinlab.com/">University of Rochester - Lopatkin Lab</a> · Rochester, NY,
+                        USA</div>
+                    <ul>
+                        <li>Co-developed <a href="https://pypi.org/project/plasann/">PlasAnn</a>, a plasmid annotation
+                            tool; released via PyPI</li>
+                        <li>Developed reproducible bioinformatics pipelines using Python & R on Linux HPC cluster</li>
+                        <li>Co-authored peer-reviewed papers on plasmid prevalence and annotation methods</li>
+                    </ul>
                 </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
-                "Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Data Science Intern</span>
+                        <span class="experience-date">Sep 2024 - Dec 2024</span>
+                    </div>
+                    <div class="experience-company"><img src="images/macroX logo.jfif" alt="" class="company-logo"><a
+                            href="https://macroxstudio.com/">MacroXStudio</a> · San Francisco, CA, USA (Remote)</div>
+                    <ul>
+                        <li>Built a Python-based data analysis copilot using ChatGPT + fine-tuned LLaMA 3.3</li>
+                        <li>Designed a modular, agentic LLM framework and benchmarked 4 pipeline variants</li>
+                        <li>Productionized the top-performing stack; projected to save 200+ person-hours/month</li>
+                    </ul>
                 </div>
-            </div>
 
-        </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Teaching Assistant</span>
+                        <span class="experience-date">Jan 2024 - Apr 2024</span>
+                    </div>
+                    <div class="experience-company"><img src="images/simonbusinessschool_logo.jfif" alt=""
+                            class="company-logo"><a href="https://simon.rochester.edu/">UR Simon Business School</a> ·
+                        Rochester, NY, USA</div>
+                    <p>Teaching Assistant for GBA465 - Python Analytics for R Programmers.</p>
+                </div>
 
-    </div> <!-- end photoSwipe background -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Associate Manager, Digitization & Analytics</span>
+                        <span class="experience-date">Jul 2021 - Jun 2023</span>
+                    </div>
+                    <div class="experience-company"><img src="images/vedanta logopng.png" alt="" class="company-logo"><a
+                            href="https://vedantaaluminium.com/">Vedanta Limited</a> · Jharsuguda, Odisha, India</div>
+                    <ul>
+                        <li>Optimized coal procurement using time-series forecasting; saved $18M+; received CEO
+                            Appreciation Award</li>
+                        <li>Developed power price forecasting model; boosted boiler efficiency 5%</li>
+                        <li>Improved aluminium product quality and domestic market share 3%</li>
+                    </ul>
+                </div>
 
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Undergraduate Research Assistant</span>
+                        <span class="experience-date">Jun 2019 - Dec 2020</span>
+                    </div>
+                    <div class="experience-company"><img src="images/IIT_Kanpur_Logo.svg.png" alt=""
+                            class="company-logo"><a href="https://www.iitk.ac.in/">IIT Kanpur</a> · Kanpur, UP, India
+                    </div>
+                    <p>Created a custom vision algorithm to track colloidal particles; achieved ≈95% tracking accuracy.
+                    </p>
+                </div>
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Data Science Intern</span>
+                        <span class="experience-date">Apr 2020 - Jul 2020</span>
+                    </div>
+                    <div class="experience-company"><img src="images/kpit logo.png" alt="" class="company-logo"><a
+                            href="https://www.kpit.com/">KPIT Technologies</a> · Pune, MH, India (Remote)</div>
+                    <p>Developed ML model to predict remaining engine oil life; XGBoost performed best (R² = 0.9).</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Visiting Research Fellow</span>
+                        <span class="experience-date">Dec 2019 - Jan 2020</span>
+                    </div>
+                    <div class="experience-company"><img src="images/TPU_new_logo_en.png" alt="" class="company-logo"><a
+                            href="https://tpu.ru/en/">Tomsk Polytechnic University</a> · Tomsk, Russia</div>
+                    <p>Built deep-learning application (ENet) for real-time semantic segmentation; achieved 67% mean
+                        IoU.</p>
+                </div>
+            </section>
+
+            <section id="publications">
+                <h2>Publications</h2>
+
+                <div class="publication-item">
+                    <div class="publication-title">PlasAnn: a curated plasmid-specific database and annotation pipeline
+                        for standardized gene and function analysis</div>
+                    <div class="publication-authors">Habibul Islam, Abhishek Sharma, Jordan Blair, Allison J Lopatkin
+                    </div>
+                    <div class="publication-venue">Nucleic Acids Research, Volume 54, Issue 3 · Published 27 January
+                        2026</div>
+                    <a href="https://academic.oup.com/nar/article/54/3/gkaf1507/8442276">View Publication →</a>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-title">Plasmid prevalence is independent of antibiotic resistance in
+                        environmental Enterobacteriaceae</div>
+                    <div class="publication-authors">Danya Gewurz, Suhyeon Kim, Lorenza Bartu, Abhishek Sharma, Joanna
+                        Ciol Harrison, Ivan Lee, Nicole C. Rondeau, JJ L. Miranda, Brian J. Mailloux, Kerry A. Hamilton,
+                        Allison J. Lopatkin</div>
+                    <div class="publication-venue">Microbial Genomics, Volume 11, Issue 8 · Published 12 August 2025
+                    </div>
+                    <a href="https://doi.org/10.1099/mgen.0.001453">View Publication →</a>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2>Skills & Tools</h2>
+                <p><strong>Focus Areas:</strong> Recommendation systems, personalization & decisioning, deep learning,
+                    LLMs & generative AI, experimental design & A/B testing.</p>
+                <ul class="skills-list">
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>PyTorch</li>
+                    <li>TensorFlow</li>
+                    <li>XGBoost</li>
+                    <li>LangChain</li>
+                    <li>MLflow</li>
+                    <li>Azure</li>
+                    <li>AWS</li>
+                    <li>Databricks</li>
+                    <li>Power BI</li>
+                    <li>Streamlit</li>
+                    <li>Git</li>
+                    <li>Docker</li>
+                </ul>
+            </section>
+
+            <footer>
+                <p>© 2025 Abhishek Sharma · <a href="mailto:abhishariitk@gmail.com">abhishariitk@gmail.com</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        // Close sidebar when clicking a link on mobile
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    document.getElementById('sidebar').classList.remove('open');
+                }
+            });
+        });
+
+        // Hide loader when page loads
+        window.addEventListener('load', () => {
+            document.getElementById('page-loader').classList.add('hidden');
+        });
+    </script>
 
 </body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal - Abhishek Sharma</title>
+    <meta name="description" content="Photography, music, writings, and personal interests of Abhishek Sharma.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png">
+    <style>
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <img src="android-chrome-192x192.png" alt="Loading...">
+    </div>
+
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-profile">
+                <img src="new_headshot.jfif" alt="Abhishek Sharma" class="sidebar-photo">
+                <div class="sidebar-name">Abhishek Sharma</div>
+                <div class="sidebar-title">Data Scientist & ML Engineer</div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#publications">Publications</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="personal.html" class="active">Personal</a></li>
+                    <li><a href="Resume_Jan25.pdf">Resume</a></li>
+                </ul>
+            </nav>
+
+            <ul class="sidebar-social">
+                <li><a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a></li>
+                <li><a href="https://github.com/sabhi-29">GitHub</a></li>
+                <li><a href="https://twitter.com/abhidiculous">X</a></li>
+                <li><a href="mailto:abhishariitk@gmail.com">Email</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <section>
+                <h1>Personal</h1>
+                <p>
+                    Beyond work, I'm an avid photographer, a novice writer (both tech and non-tech), and I love playing
+                    the guitar. I enjoy capturing moments through my lens and occasionally put thoughts into words.
+                </p>
+            </section>
+
+            <section id="photography">
+                <h2>Photography</h2>
+                <p>
+                    Here are some of my favorite shots. I love capturing landscapes, architecture, and candid moments.
+                    Check out more on my photography Instagram <a
+                        href="https://www.instagram.com/lights.cameraclick/">@lights.cameraclick</a>.
+                </p>
+                <div class="photo-gallery">
+                    <img src="27575265_182732342491614_2959502706286264320_n.jpg" alt="Photography"
+                        onclick="openLightbox(this.src)">
+                    <img src="40230140_537982330004968_8536922676992034736_n.jpg" alt="Photography"
+                        onclick="openLightbox(this.src)">
+                    <img src="83804213_195132721847227_8730246960916447551_n.jpg" alt="Photography"
+                        onclick="openLightbox(this.src)">
+                    <img src="EDIT 2.jpg" alt="Photography" onclick="openLightbox(this.src)">
+                </div>
+            </section>
+
+            <section id="music">
+                <h2>Music & Guitar</h2>
+                <p>
+                    I love playing the guitar - mostly acoustic covers and some original compositions. Check out my
+                    guitar videos on Instagram <a
+                        href="https://www.instagram.com/lightscameraguitar/">@lightscameraguitar</a>.
+                </p>
+                <p>
+                    Progressive rock is my favorite genre, especially Pink Floyd.
+                </p>
+            </section>
+
+            <section id="writings">
+                <h2>Writings</h2>
+                <p>
+                    I share thoughts and articles on <a href="https://abhi291099.medium.com/">Medium</a>. Here are some
+                    pieces I've written:
+                </p>
+
+                <div class="article-item">
+                    <div class="article-title"><a href="https://abhi291099.medium.com/the-battle-4f70d8938401">The
+                            Battle</a></div>
+                    <p class="article-excerpt">A reflection on inner struggles and the fight we all face within
+                        ourselves.</p>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title"><a
+                            href="https://abhi291099.medium.com/cosmic-friendship-8e7cde684d91">Cosmic Friendship</a>
+                    </div>
+                    <p class="article-excerpt">Exploring the nature of connections that transcend time and space.</p>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title"><a href="https://abhi291099.medium.com/">More on Medium →</a></div>
+                    <p class="article-excerpt">Browse all my articles on tech, life, and everything in between.</p>
+                </div>
+            </section>
+
+            <section id="connect">
+                <h2>Connect</h2>
+                <div class="connect-list">
+                    <div>Photography: <a href="https://www.instagram.com/lights.cameraclick/">@lights.cameraclick</a>
+                    </div>
+                    <div>Guitar: <a href="https://www.instagram.com/lightscameraguitar/">@lightscameraguitar</a></div>
+                    <div>Personal: <a href="https://www.instagram.com/abhidiculous/">@abhidiculous</a></div>
+                </div>
+            </section>
+
+            <footer>
+                <p>© 2025 Abhishek Sharma · <a href="mailto:abhishariitk@gmail.com">abhishariitk@gmail.com</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Lightbox for enlarged photos -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged photo">
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    document.getElementById('sidebar').classList.remove('open');
+                }
+            });
+        });
+
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Hide loader when page loads
+        window.addEventListener('load', () => {
+            document.getElementById('page-loader').classList.add('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
