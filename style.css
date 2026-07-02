@@ -1,14 +1,34 @@
-/* Minimalist Portfolio Stylesheet - Sidebar Layout */
+/* ============================================================
+   The Dark Side of the Data — Pink Floyd themed portfolio
+   Inspired by the sleeve work of Hipgnosis & Storm Thorgerson
+   ============================================================ */
 
 :root {
-    --primary-color: #2563eb;
-    --text-color: #1f2937;
-    --text-muted: #6b7280;
-    --bg-color: #ffffff;
-    --sidebar-bg: #f8fafc;
-    --border-color: #e5e7eb;
-    --section-bg: #f9fafb;
-    --sidebar-width: 240px;
+    /* Muted Floyd palette — Animals / Wish You Were Here:
+       industrial charcoal, burnt rust, desert amber, steel blue */
+    --pf-red: #bf4a35;
+    --pf-orange: #b35433;
+    --pf-yellow: #d98e3f;
+    --pf-green: #4a9d6b;
+    --pf-blue: #5b84a8;
+    --pf-violet: #4a5978;
+
+    --spectrum: linear-gradient(90deg,
+            var(--pf-orange), var(--pf-yellow), var(--pf-blue));
+
+    --primary-color: var(--pf-yellow);
+    --text-color: #e8e6e1;
+    --text-muted: #9a97a3;
+    --bg-color: #08080d;
+    --bg-deep: #050508;
+    --sidebar-bg: #0b0b12;
+    --panel-bg: #10101a;
+    --border-color: #23232f;
+    --section-bg: #14141e;
+    --sidebar-width: 250px;
+
+    --font-display: 'Jost', 'Futura', 'Century Gothic', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * {
@@ -17,19 +37,20 @@
     box-sizing: border-box;
 }
 
-/* Page Loader */
+/* ------------------------------------------------------------
+   Page loader — "Breathe, breathe in the air…"
+   ------------------------------------------------------------ */
 #page-loader {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
+    inset: 0;
+    background: var(--bg-deep);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 24px;
     z-index: 9999;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.6s ease;
 }
 
 #page-loader.hidden {
@@ -37,149 +58,333 @@
     pointer-events: none;
 }
 
-#page-loader img {
-    width: 80px;
-    height: 80px;
-    animation: pulse 1s ease-in-out infinite;
+.loader-spectrum {
+    width: 140px;
+    height: 3px;
+    background: var(--spectrum);
+    border-radius: 2px;
+    animation: loader-spectrum 1.4s ease-in-out infinite;
 }
 
-@keyframes pulse {
+.loader-text {
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: lowercase;
+}
 
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+@keyframes loader-spectrum {
+    0%, 100% { transform: scaleX(0.55); opacity: 0.5; }
+    50% { transform: scaleX(1); opacity: 1; }
+}
 
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
+/* ------------------------------------------------------------
+   Base
+   ------------------------------------------------------------ */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-color);
-    background: var(--bg-color);
+    background-color: var(--bg-color);
+    /* A quiet starfield — set the controls for the heart of the sun */
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1px),
+        radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        radial-gradient(rgba(255, 255, 255, 0.045) 1.5px, transparent 1.5px);
+    background-size: 190px 190px, 310px 310px, 460px 460px;
+    background-position: 0 0, 95px 130px, 210px 60px;
+    background-attachment: fixed;
 }
 
-/* Layout: Sidebar + Main Content */
+::selection {
+    background: var(--pf-violet);
+    color: #fff;
+}
+
+/* Dark scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: #2c2c3a; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #3c3c4e; }
+
+/* ------------------------------------------------------------
+   Layout
+   ------------------------------------------------------------ */
 .layout {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar */
+/* ------------------------------------------------------------
+   Sidebar
+   ------------------------------------------------------------ */
 .sidebar {
     width: var(--sidebar-width);
     background: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
-    padding: 30px 20px;
+    padding: 34px 20px 24px;
     position: fixed;
     height: 100vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-profile {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
+/* Photo with a warm amber ring */
 .sidebar-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    padding: 3px;
+    background: linear-gradient(140deg, var(--pf-orange), var(--pf-yellow));
 }
 
 .sidebar-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
 }
 
 .sidebar-title {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
 }
 
-/* Navigation */
+.sidebar-divider {
+    width: 90px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--spectrum);
+    border-radius: 1px;
+}
+
+/* Navigation — each stop on the spectrum gets its own colour */
 nav ul {
     list-style: none;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
 
 nav li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 nav a {
-    color: var(--text-color);
+    color: var(--text-muted);
     text-decoration: none;
+    font-family: var(--font-display);
     font-weight: 500;
-    font-size: 0.95rem;
-    padding: 8px 12px;
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 9px 14px;
     display: block;
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
+    border-left: 2px solid transparent;
+    border-radius: 0 6px 6px 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 nav a:hover,
 nav a.active {
-    background: var(--primary-color);
-    color: white;
+    border-color: var(--pf-yellow);
+}
+
+nav a:hover,
+nav a.active {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
     text-decoration: none;
 }
 
-/* Social Links in Sidebar */
+/* Rotating "now spinning" line */
+.now-spinning {
+    margin-top: auto;
+    padding: 14px 6px 16px;
+    text-align: center;
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border-color);
+}
+
+.now-spinning .label {
+    display: block;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.62rem;
+    margin-bottom: 6px;
+    color: #5f5c6b;
+}
+
+.now-spinning .album {
+    display: block;
+    min-height: 2.4em;
+    color: var(--text-muted);
+    transition: opacity 0.6s ease;
+}
+
+.now-spinning .album.fading {
+    opacity: 0;
+}
+
+/* Social links */
 .sidebar-social {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 16px;
     border-top: 1px solid var(--border-color);
 }
 
 .sidebar-social a {
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
     text-decoration: none;
+    transition: color 0.2s;
 }
 
-.sidebar-social a:hover {
-    color: var(--primary-color);
-}
+.sidebar-social a:hover { color: var(--pf-yellow); }
 
-/* Main Content */
+/* ------------------------------------------------------------
+   Main content
+   ------------------------------------------------------------ */
 main {
     flex: 1;
     margin-left: var(--sidebar-width);
-    padding: 40px 50px;
-    max-width: 800px;
+    padding: 40px 50px 60px;
+    max-width: 860px;
 }
 
-/* Sections */
 section {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+}
+
+/* Fade-in on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ------------------------------------------------------------
+   Hero — The Dark Side of the Data
+   ------------------------------------------------------------ */
+.hero-intro {
+    text-align: center;
+    padding: 70px 0 10px;
+    margin-bottom: 60px;
+}
+
+.hero-name {
+    font-family: var(--font-display);
+    font-size: 2.3rem;
+    font-weight: 500;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    margin: 34px 0 10px;
+    text-indent: 0.42em; /* balances the trailing letter-spacing */
+}
+
+.hero-role {
+    font-family: var(--font-display);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-indent: 0.3em;
+    margin-bottom: 22px;
+}
+
+.hero-tagline {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.98rem;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------------------------
+   Section headings — album liner-note style
+   ------------------------------------------------------------ */
+.track-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
 }
 
 h1 {
+    font-family: var(--font-display);
     font-size: 2rem;
-    margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     color: var(--text-color);
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 8px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 160px;
+    height: 2px;
+    background: var(--spectrum);
+    border-radius: 1px;
+}
+
+.lyric {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.92rem;
+    margin: 14px 0 26px;
+}
+
+.lyric .credit {
+    font-style: normal;
+    font-size: 0.8rem;
+    color: #5f5c6b;
 }
 
 h3 {
@@ -194,24 +399,37 @@ p {
 
 /* Links */
 a {
-    color: var(--primary-color);
+    color: var(--pf-yellow);
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 a:hover {
+    color: #fff;
     text-decoration: underline;
 }
 
-/* Experience Items */
+/* ------------------------------------------------------------
+   Experience — "Time"
+   Each stop of the career refracts a different colour.
+   ------------------------------------------------------------ */
 .experience-item {
-    margin-bottom: 25px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 26px;
+    padding: 18px 20px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--pf-red);
+    border-radius: 0 8px 8px 0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.experience-item:last-child {
-    border-bottom: none;
+.experience-item:hover {
+    transform: translateX(4px);
 }
+
+.experience-item:nth-of-type(3n+1) { border-left-color: var(--pf-yellow); }
+.experience-item:nth-of-type(3n+2) { border-left-color: var(--pf-blue); }
+.experience-item:nth-of-type(3n+3) { border-left-color: var(--pf-orange); }
 
 .experience-header {
     display: flex;
@@ -225,6 +443,7 @@ a:hover {
 .experience-title {
     font-weight: 600;
     color: var(--text-color);
+    letter-spacing: 0.02em;
 }
 
 .experience-company {
@@ -236,14 +455,19 @@ a:hover {
 }
 
 .company-logo {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     object-fit: contain;
+    background: #fff;
+    border-radius: 4px;
+    padding: 2px;
 }
 
 .experience-date {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
 }
 
 .experience-item ul {
@@ -261,14 +485,22 @@ a:hover {
     color: var(--text-color);
     font-size: 0.95rem;
     margin-top: 10px;
+    margin-bottom: 0;
 }
 
-/* Publications */
+/* ------------------------------------------------------------
+   Publications — "Echoes"
+   ------------------------------------------------------------ */
 .publication-item {
-    margin-bottom: 20px;
-    padding-left: 15px;
-    border-left: 3px solid var(--primary-color);
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--pf-blue);
+    border-radius: 0 8px 8px 0;
 }
+
+.publication-item:nth-of-type(2) { border-left-color: var(--pf-violet); }
 
 .publication-title {
     font-weight: 600;
@@ -287,28 +519,56 @@ a:hover {
     margin-bottom: 5px;
 }
 
-.publication-doi {
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-}
-
-/* Skills */
+/* ------------------------------------------------------------
+   Skills — "Another Brick in the Wall"
+   ------------------------------------------------------------ */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
     list-style: none;
+    margin-top: 18px;
 }
 
 .skills-list li {
-    background: var(--section-bg);
-    padding: 5px 12px;
-    border-radius: 4px;
+    background: linear-gradient(180deg, #1b1b26, #14141d);
+    border: 1px solid #2b2b38;
+    padding: 9px 26px;
+    border-radius: 3px;
     font-size: 0.9rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
     color: var(--text-muted);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
 }
 
-/* Photo Gallery */
+/* Bricks glow warm or cool when touched */
+.skills-list li:hover { color: #fff; }
+.skills-list li:nth-child(2n+1):hover { border-color: var(--pf-yellow); box-shadow: 0 0 12px rgba(217, 142, 63, 0.35); }
+.skills-list li:nth-child(2n+2):hover { border-color: var(--pf-blue); box-shadow: 0 0 12px rgba(91, 132, 168, 0.35); }
+
+/* ------------------------------------------------------------
+   Education
+   ------------------------------------------------------------ */
+.education-item {
+    margin-bottom: 16px;
+    padding: 14px 20px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--pf-green);
+    border-radius: 0 8px 8px 0;
+}
+
+.education-item:nth-of-type(2) { border-left-color: var(--pf-orange); }
+
+.education-degree { font-weight: 600; }
+.education-school { color: var(--text-muted); font-size: 0.92rem; }
+
+/* ------------------------------------------------------------
+   Photo gallery — "Any Colour You Like"
+   ------------------------------------------------------------ */
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -320,24 +580,85 @@ a:hover {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.2s;
+    border: 1px solid var(--border-color);
+    filter: saturate(0.9);
+    transition: transform 0.25s, filter 0.25s, box-shadow 0.25s;
 }
 
 .photo-gallery img:hover {
     transform: scale(1.02);
+    filter: saturate(1.15);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
 }
 
-/* Articles List */
+/* ------------------------------------------------------------
+   Music — "Wish You Were Here"
+   ------------------------------------------------------------ */
+.vinyl-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 20px 0 26px;
+    flex-wrap: wrap;
+}
+
+.vinyl {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background:
+        radial-gradient(circle at center,
+            #0a0a0a 0 12%,
+            transparent 12% 13%,
+            #0a0a0a 13%),
+        repeating-radial-gradient(circle at center,
+            #141414 0 2px, #0c0c0c 2px 4px);
+    position: relative;
+    animation: vinyl-spin 6s linear infinite;
+    box-shadow: 0 0 0 1px #23232f, 0 6px 18px rgba(0, 0, 0, 0.7);
+}
+
+.vinyl::after {
+    /* Warm amber label at the centre of the record */
+    content: '';
+    position: absolute;
+    inset: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--pf-yellow) 0 55%, var(--pf-orange) 55% 100%);
+}
+
+.vinyl::before {
+    content: '';
+    position: absolute;
+    inset: 50px;
+    border-radius: 50%;
+    background: #08080d;
+    z-index: 1;
+}
+
+@keyframes vinyl-spin {
+    to { transform: rotate(360deg); }
+}
+
+.spotify-embed {
+    border-radius: 12px;
+    border: 0;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+/* ------------------------------------------------------------
+   Articles — "Brain Damage"
+   ------------------------------------------------------------ */
 .article-item {
     margin-bottom: 12px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.article-item:last-child {
-    border-bottom: none;
+    padding: 14px 18px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
 }
 
 .article-title {
@@ -348,44 +669,66 @@ a:hover {
 .article-excerpt {
     color: var(--text-muted);
     font-size: 0.95rem;
+    margin-bottom: 0;
 }
 
-/* Connect List */
+/* Connect list */
 .connect-list div {
     margin-bottom: 8px;
 }
 
-/* Footer */
+/* ------------------------------------------------------------
+   Footer — "Eclipse"
+   ------------------------------------------------------------ */
 footer {
-    margin-top: 50px;
-    padding-top: 20px;
+    margin-top: 60px;
+    padding-top: 24px;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
-/* Mobile Menu Toggle */
+.footer-quote {
+    font-style: italic;
+    color: #6d6a78;
+    margin-bottom: 10px;
+}
+
+.footer-spectrum {
+    width: 100%;
+    height: 2px;
+    background: var(--spectrum);
+    border-radius: 1px;
+    margin-bottom: 18px;
+    opacity: 0.75;
+}
+
+/* ------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------ */
 .mobile-menu-toggle {
     display: none;
     position: fixed;
     top: 15px;
     left: 15px;
     z-index: 1000;
-    background: var(--primary-color);
-    color: white;
-    border: none;
+    background: var(--panel-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
     padding: 10px 15px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.1em;
 }
 
-/* Responsive - Tablet & Mobile */
 @media (max-width: 900px) {
     .sidebar {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 999;
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.6);
     }
 
     .sidebar.open {
@@ -409,6 +752,18 @@ footer {
     .photo-gallery {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
+
+    .hero-name {
+        font-size: 1.5rem;
+        letter-spacing: 0.28em;
+        text-indent: 0.28em;
+    }
+
+    .hero-role {
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+        text-indent: 0.2em;
+    }
 }
 
 @media (max-width: 500px) {
@@ -416,16 +771,315 @@ footer {
         padding: 70px 15px 30px;
     }
 
-    h1 {
-        font-size: 1.6rem;
-    }
+    h1 { font-size: 1.4rem; }
+    h2 { font-size: 1.1rem; letter-spacing: 0.14em; }
 
-    h2 {
-        font-size: 1.2rem;
+    .hero-name {
+        font-size: 1.15rem;
+        letter-spacing: 0.2em;
+        text-indent: 0.2em;
     }
 
     .sidebar-photo {
         width: 100px;
         height: 100px;
     }
+}
+
+/* ============================================================
+   FX LAYER — 3D scenes, auroras, glass, reactive cursor
+   ============================================================ */
+
+/* WebGL neural constellation behind everything */
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Aurora colour fields — ultra-modern gradient mesh */
+.aurora {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+.aurora-1 {
+    width: 55vw;
+    height: 55vw;
+    top: -18vw;
+    right: -12vw;
+    background: radial-gradient(circle, rgba(43, 62, 87, 0.55), transparent 65%);
+    animation: aurora-drift 26s ease-in-out infinite alternate;
+}
+
+.aurora-2 {
+    width: 48vw;
+    height: 48vw;
+    bottom: -16vw;
+    left: 6vw;
+    background: radial-gradient(circle, rgba(91, 132, 168, 0.28), transparent 65%);
+    animation: aurora-drift 32s ease-in-out infinite alternate-reverse;
+}
+
+.aurora-3 {
+    width: 36vw;
+    height: 36vw;
+    top: 38%;
+    left: -14vw;
+    background: radial-gradient(circle, rgba(179, 84, 51, 0.22), transparent 65%);
+    animation: aurora-drift 40s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(6vw, 4vh, 0) scale(1.18); }
+}
+
+/* Readability scrim — dark over the text column, clear at the right
+   margin so the network's output stays visible. Lifts (via .net-live)
+   while a user-triggered classification is running. */
+.bg-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            rgba(8, 8, 13, 0.74) 0%,
+            rgba(8, 8, 13, 0.70) 60%,
+            rgba(8, 8, 13, 0.30) 78%,
+            rgba(8, 8, 13, 0.05) 92%,
+            rgba(8, 8, 13, 0) 100%);
+    transition: opacity 0.8s ease;
+}
+
+body.net-live .bg-scrim {
+    opacity: 0.25;
+}
+
+@media (max-width: 900px) {
+    .bg-scrim {
+        background: rgba(8, 8, 13, 0.82);
+    }
+}
+
+/* Content sits above the 3D layer */
+.layout {
+    position: relative;
+    z-index: 1;
+}
+
+.mobile-menu-toggle {
+    z-index: 1001;
+}
+
+/* Glassmorphism */
+.sidebar {
+    background: rgba(11, 11, 18, 0.66);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.experience-item,
+.publication-item,
+.article-item,
+.education-item {
+    background: rgba(16, 16, 26, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.16s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.experience-item:hover {
+    transform: none;
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+}
+
+.publication-item:hover,
+.article-item:hover,
+.education-item:hover {
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+}
+
+/* Stat chips — the numbers behind the noise */
+.hero-stats {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.stat-chip {
+    padding: 14px 24px;
+    background: rgba(16, 16, 26, 0.55);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-width: 130px;
+    text-align: center;
+    transition: transform 0.16s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    cursor: default;
+}
+
+.stat-chip:nth-child(2n+1):hover { border-color: var(--pf-yellow); box-shadow: 0 0 20px rgba(217, 142, 63, 0.28); }
+.stat-chip:nth-child(2n+2):hover { border-color: var(--pf-blue); box-shadow: 0 0 20px rgba(91, 132, 168, 0.28); }
+
+.stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    background: var(--spectrum);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* The Machine — song classifier console */
+.classifier {
+    margin-top: 40px;
+}
+
+.classifier-title {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.classifier-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.song-chip {
+    background: rgba(16, 16, 26, 0.6);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.song-chip:hover {
+    color: #fff;
+    border-color: var(--pf-blue);
+    box-shadow: 0 0 14px rgba(91, 132, 168, 0.3);
+}
+
+.song-chip.active {
+    color: #fff;
+    border-color: var(--pf-yellow);
+    box-shadow: 0 0 16px rgba(217, 142, 63, 0.3);
+}
+
+.chip-artist {
+    color: #5f5c6b;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+.classifier-verdict {
+    min-height: 1.9em;
+    margin-top: 18px;
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.classifier-verdict.thinking {
+    color: var(--text-muted);
+    font-style: italic;
+    animation: thinking-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes thinking-pulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+}
+
+.classifier-verdict.yes {
+    color: var(--pf-green);
+    text-shadow: 0 0 20px rgba(74, 157, 107, 0.5);
+}
+
+.classifier-verdict.no {
+    color: var(--pf-red);
+    text-shadow: 0 0 20px rgba(191, 74, 53, 0.5);
+}
+
+.classifier-hint {
+    margin-top: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: #5f5c6b;
+}
+
+/* The heartbeat — DSOTM's pulse as a live ECG */
+.pulse-wrap {
+    margin: 4px 0 16px;
+}
+
+#pulse-canvas {
+    width: 100%;
+    height: 52px;
+    display: block;
+    opacity: 0.85;
+}
+
+.pulse-caption {
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #5f5c6b;
+    margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+    .aurora { filter: blur(70px); }
+    .hero-stats { gap: 10px; }
+    .stat-chip { min-width: 108px; padding: 10px 16px; }
+    #hero-3d { min-height: 300px; }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .beam-in { animation-duration: 0.01s; animation-delay: 0s; }
+    .beam-inner { animation-duration: 0.01s; animation-delay: 0.05s; }
+    .band { animation-duration: 0.01s; animation-delay: 0.1s; }
+    .vinyl { animation: none; }
+    .aurora { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
 }

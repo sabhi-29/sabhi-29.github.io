@@ -4,18 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Sharma - Data Scientist & ML Engineer</title>
+    <title>Abhishek Sharma — The Dark Side of the Data</title>
     <meta name="description"
-        content="Data Scientist & ML Engineer specializing in deep-learning recommendation systems for personalized marketing and decisioning.">
+        content="Data Scientist & ML Engineer specializing in deep-learning recommendation systems. A Pink Floyd–inspired portfolio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="android-chrome-192x192.png">
 </head>
 
 <body>
 
-    <!-- Page Loader -->
+    <!-- 3D neural constellation + aurora fields -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="aurora aurora-1" aria-hidden="true"></div>
+    <div class="aurora aurora-2" aria-hidden="true"></div>
+    <div class="aurora aurora-3" aria-hidden="true"></div>
+    <!-- Readability scrim: dims the network behind the text column;
+         lifts while the classifier is running -->
+    <div class="bg-scrim" aria-hidden="true"></div>
+
+    <!-- Page Loader — "Breathe in the air" -->
     <div id="page-loader">
-        <img src="android-chrome-192x192.png" alt="Loading...">
+        <div class="loader-spectrum"></div>
+        <div class="loader-text">breathe</div>
     </div>
 
     <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
@@ -26,7 +40,8 @@
             <div class="sidebar-profile">
                 <img src="new_headshot.jfif" alt="Abhishek Sharma" class="sidebar-photo">
                 <div class="sidebar-name">Abhishek Sharma</div>
-                <div class="sidebar-title">Data Scientist & ML Engineer</div>
+                <div class="sidebar-title">Data Scientist &amp; ML Engineer</div>
+                <div class="sidebar-divider"></div>
             </div>
 
             <nav>
@@ -40,6 +55,11 @@
                 </ul>
             </nav>
 
+            <div class="now-spinning">
+                <span class="label">Now Spinning</span>
+                <span class="album" id="now-spinning-album">The Dark Side of the Moon</span>
+            </div>
+
             <ul class="sidebar-social">
                 <li><a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a></li>
                 <li><a href="https://github.com/sabhi-29">GitHub</a></li>
@@ -50,12 +70,52 @@
 
         <!-- Main Content -->
         <main>
-            <section id="about">
-                <h1>About Me</h1>
+            <!-- Hero -->
+            <div class="hero-intro">
+                <h1 class="hero-name">Abhishek Sharma</h1>
+                <div class="hero-role">Data Scientist &middot; ML Engineer</div>
+                <p class="hero-tagline">
+                    "There is no dark side of the data really. Matter of fact, it's all signal."
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-chip">
+                        <span class="stat-num" data-target="200" data-prefix="+" data-suffix="%">0</span>
+                        <span class="stat-label">Response Lift</span>
+                    </div>
+                    <div class="stat-chip">
+                        <span class="stat-num" data-target="18" data-prefix="$" data-suffix="M+">0</span>
+                        <span class="stat-label">Savings Delivered</span>
+                    </div>
+                    <div class="stat-chip">
+                        <span class="stat-num" data-target="2">0</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat-chip">
+                        <span class="stat-num" data-target="95" data-suffix="%">0</span>
+                        <span class="stat-label">Vision Accuracy</span>
+                    </div>
+                </div>
+
+                <!-- The Machine: feed it a song, watch the background network decide -->
+                <div class="classifier">
+                    <div class="classifier-title">Welcome to the Machine &middot; a neural net runs behind this page &mdash; feed it a song</div>
+                    <div class="classifier-chips" id="classifier-chips"></div>
+                    <div class="classifier-verdict" id="classifier-verdict">pick a track &mdash; watch the signal travel the network behind this page</div>
+                    <div class="classifier-hint">the glowing web behind everything is a live 6&rarr;8&rarr;6&rarr;1 classifier &middot; hover any neuron to inspect its activation</div>
+                </div>
+            </div>
+
+            <section id="about" class="reveal">
+                <span class="track-label">Side One &middot; Speak to Me</span>
+                <h2>About</h2>
+                <p class="lyric">
+                    "Us, and them &mdash; and after all, we're only ordinary models."
+                </p>
                 <p>
-                    I am a Data Scientist & ML Engineer at <a href="https://quaerainsights.com/">QuaEra Insights</a>,
+                    I am a Data Scientist &amp; ML Engineer at <a href="https://quaerainsights.com/">QuaEra Insights</a>,
                     specializing in deep-learning recommendation systems for personalized marketing and decisioning. I
-                    own the full ML lifecycle—from data ingestion and feature engineering to model development, rigorous
+                    own the full ML lifecycle&mdash;from data ingestion and feature engineering to model development, rigorous
                     evaluation, experimentation, and production deployment.
                 </p>
                 <p>
@@ -71,8 +131,12 @@
                 </p>
             </section>
 
-            <section id="experience">
+            <section id="experience" class="reveal">
+                <span class="track-label">Side One &middot; Time</span>
                 <h2>Experience</h2>
+                <p class="lyric">
+                    "Ticking away the moments that make up a dull day&hellip;" &mdash; seven years of shipping models that matter.
+                </p>
 
                 <div class="experience-item">
                     <div class="experience-header">
@@ -180,8 +244,12 @@
                 </div>
             </section>
 
-            <section id="publications">
+            <section id="publications" class="reveal">
+                <span class="track-label">Side Two &middot; Echoes</span>
                 <h2>Publications</h2>
+                <p class="lyric">
+                    "Overhead the albatross hangs motionless upon the air&hellip;"
+                </p>
 
                 <div class="publication-item">
                     <div class="publication-title">PlasAnn: a curated plasmid-specific database and annotation pipeline
@@ -205,8 +273,12 @@
                 </div>
             </section>
 
-            <section id="skills">
-                <h2>Skills & Tools</h2>
+            <section id="skills" class="reveal">
+                <span class="track-label">Side Two &middot; Another Brick in the Wall</span>
+                <h2>Skills &amp; Tools</h2>
+                <p class="lyric">
+                    "All in all, it's just another brick in the wall." &mdash; each one below lights up when you touch it.
+                </p>
                 <p><strong>Focus Areas:</strong> Recommendation systems, personalization & decisioning, deep learning,
                     LLMs & generative AI, experimental design & A/B testing.</p>
                 <ul class="skills-list">
@@ -228,11 +300,20 @@
             </section>
 
             <footer>
+                <div class="pulse-wrap">
+                    <canvas id="pulse-canvas" aria-hidden="true"></canvas>
+                    <div class="pulse-caption">the heartbeat &middot; 62 bpm &middot; the dark side of the moon, 1973</div>
+                </div>
+                <div class="footer-spectrum"></div>
+                <p class="footer-quote">
+                    "And everything under the sun is in tune, but the sun is eclipsed by the moon."
+                </p>
                 <p>© 2025 Abhishek Sharma · <a href="mailto:abhishariitk@gmail.com">abhishariitk@gmail.com</a></p>
             </footer>
         </main>
     </div>
 
+    <script src="fx.js"></script>
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('open');
@@ -247,10 +328,43 @@
             });
         });
 
-        // Hide loader when page loads
-        window.addEventListener('load', () => {
-            document.getElementById('page-loader').classList.add('hidden');
-        });
+        // Hide loader when page loads (with a safety timeout so it never lingers)
+        const hideLoader = () => document.getElementById('page-loader').classList.add('hidden');
+        window.addEventListener('load', hideLoader);
+        setTimeout(hideLoader, 2500);
+
+        // Reveal sections on scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Rotating "Now Spinning" — the Floyd discography
+        const albums = [
+            'The Dark Side of the Moon',
+            'Wish You Were Here',
+            'The Wall',
+            'Animals',
+            'Meddle',
+            'The Division Bell',
+            'A Momentary Lapse of Reason',
+            'Atom Heart Mother'
+        ];
+        let albumIdx = 0;
+        const albumEl = document.getElementById('now-spinning-album');
+        setInterval(() => {
+            albumEl.classList.add('fading');
+            setTimeout(() => {
+                albumIdx = (albumIdx + 1) % albums.length;
+                albumEl.textContent = albums[albumIdx];
+                albumEl.classList.remove('fading');
+            }, 600);
+        }, 4000);
     </script>
 
 </body>
