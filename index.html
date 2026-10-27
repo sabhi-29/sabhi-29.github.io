@@ -4,369 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Sharma — The Dark Side of the Data</title>
+    <title>Abhishek Sharma</title>
     <meta name="description"
-        content="Data Scientist & ML Engineer specializing in deep-learning recommendation systems. A Pink Floyd–inspired portfolio.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+        content="Abhishek Sharma is a Data Scientist and ML Engineer specializing in deep-learning recommendation systems.">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="android-chrome-192x192.png">
 </head>
 
 <body>
-
-    <!-- 3D neural constellation + aurora fields -->
-    <canvas id="bg-canvas" aria-hidden="true"></canvas>
-    <div class="aurora aurora-1" aria-hidden="true"></div>
-    <div class="aurora aurora-2" aria-hidden="true"></div>
-    <div class="aurora aurora-3" aria-hidden="true"></div>
-    <!-- Readability scrim: dims the network behind the text column;
-         lifts while the classifier is running -->
-    <div class="bg-scrim" aria-hidden="true"></div>
-
-    <!-- Page Loader — "Breathe in the air" -->
-    <div id="page-loader">
-        <div class="loader-spectrum"></div>
-        <div class="loader-text">breathe</div>
-    </div>
-
-    <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
-
-    <div class="layout">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-profile">
-                <img src="new_headshot.jfif" alt="Abhishek Sharma" class="sidebar-photo">
-                <div class="sidebar-name">Abhishek Sharma</div>
-                <div class="sidebar-title">Data Scientist &amp; ML Engineer</div>
-                <div class="sidebar-divider"></div>
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="personal.html">Personal</a></li>
-                    <li><a href="Resume_Jan25.pdf">Resume</a></li>
-                </ul>
-            </nav>
-
-            <div class="now-spinning">
-                <span class="label">Now Spinning</span>
-                <span class="album" id="now-spinning-album">The Dark Side of the Moon</span>
-            </div>
-
-            <ul class="sidebar-social">
-                <li><a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a></li>
-                <li><a href="https://github.com/sabhi-29">GitHub</a></li>
-                <li><a href="https://twitter.com/abhidiculous">X</a></li>
-                <li><a href="mailto:abhishariitk@gmail.com">Email</a></li>
+    <div class="wrap">
+        <header class="header">
+            <h1 class="site-title"><a href="index.html">Abhishek Sharma</a></h1>
+            <ul class="nav">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="personal.html">Personal</a></li>
+                <li><a href="Resume_Jan25.pdf">Resume</a></li>
             </ul>
-        </aside>
+        </header>
 
-        <!-- Main Content -->
         <main>
-            <!-- Hero -->
-            <div class="hero-intro">
-                <h1 class="hero-name">Abhishek Sharma</h1>
-                <div class="hero-role">Data Scientist &middot; ML Engineer</div>
-                <p class="hero-tagline">
-                    "There is no dark side of the data really. Matter of fact, it's all signal."
-                </p>
+            <hr>
+            <div class="intro">
+                <img src="new_headshot.jfif" alt="Abhishek Sharma" class="home-photo">
+                <div class="intro-text">
+                    <p>I'm Abhishek, a Data Scientist and ML Engineer. At <a
+                            href="https://quaerainsights.com/"><strong>QuaEra Insights</strong></a>, I build
+                        deep-learning recommendation systems for personalized marketing and decisioning, owning the
+                        full ML lifecycle from data ingestion to production deployment.</p>
 
-                <div class="hero-stats">
-                    <div class="stat-chip">
-                        <span class="stat-num" data-target="200" data-prefix="+" data-suffix="%">0</span>
-                        <span class="stat-label">Response Lift</span>
-                    </div>
-                    <div class="stat-chip">
-                        <span class="stat-num" data-target="18" data-prefix="$" data-suffix="M+">0</span>
-                        <span class="stat-label">Savings Delivered</span>
-                    </div>
-                    <div class="stat-chip">
-                        <span class="stat-num" data-target="2">0</span>
-                        <span class="stat-label">Publications</span>
-                    </div>
-                    <div class="stat-chip">
-                        <span class="stat-num" data-target="95" data-suffix="%">0</span>
-                        <span class="stat-label">Vision Accuracy</span>
-                    </div>
-                </div>
+                    <p>At QuaEra, I improved Aignyte's AI decisioning platform for direct-mail and email campaigns,
+                        delivering a 200% response-rate lift for a Fortune 500 client and ~50% gains across five
+                        others. Previously, at <a href="https://vedantaaluminium.com/"><strong>Vedanta</strong></a>, I
+                        built forecasting models that optimized procurement and saved $18M+.</p>
 
-                <!-- The Machine: feed it a song, watch the background network decide -->
-                <div class="classifier">
-                    <div class="classifier-title">Welcome to the Machine &middot; a neural net runs behind this page &mdash; feed it a song</div>
-                    <div class="classifier-chips" id="classifier-chips"></div>
-                    <div class="classifier-verdict" id="classifier-verdict">pick a track &mdash; watch the signal travel the network behind this page</div>
-                    <div class="classifier-hint">the glowing web behind everything is a live 6&rarr;8&rarr;6&rarr;1 classifier &middot; hover any neuron to inspect its activation</div>
+                    <p>Earlier, I co-developed <a href="https://pypi.org/project/plasann/">PlasAnn</a> as a research
+                        assistant at the Lopatkin Lab and built ML products at MacroXStudio and KPIT. I hold a
+                        Master's in Data Science from the University of Rochester and a B.Tech in Chemical
+                        Engineering from IIT Kanpur.</p>
                 </div>
             </div>
 
-            <section id="about" class="reveal">
-                <span class="track-label">Side One &middot; Speak to Me</span>
-                <h2>About</h2>
-                <p class="lyric">
-                    "Us, and them &mdash; and after all, we're only ordinary models."
-                </p>
-                <p>
-                    I am a Data Scientist &amp; ML Engineer at <a href="https://quaerainsights.com/">QuaEra Insights</a>,
-                    specializing in deep-learning recommendation systems for personalized marketing and decisioning. I
-                    own the full ML lifecycle&mdash;from data ingestion and feature engineering to model development, rigorous
-                    evaluation, experimentation, and production deployment.
-                </p>
-                <p>
-                    At QuaEra, I improved Aignyte's AI decisioning platform for direct-mail and email campaigns,
-                    delivering a 200% response-rate lift and ~50% gains across five clients. Earlier at
-                    <a href="https://vedantaaluminium.com/">Vedanta</a>, I optimized procurement with forecasting models
-                    that saved $18M+ and boosted operational efficiency.
-                </p>
-                <p>
-                    I hold a Master's in Data Science from the <a href="https://rochester.edu/">University of
-                        Rochester</a> (4.0 GPA) and a B.Tech in
-                    Chemical Engineering from <a href="https://www.iitk.ac.in/">IIT Kanpur</a>.
-                </p>
-            </section>
-
-            <section id="experience" class="reveal">
-                <span class="track-label">Side One &middot; Time</span>
-                <h2>Experience</h2>
-                <p class="lyric">
-                    "Ticking away the moments that make up a dull day&hellip;" &mdash; seven years of shipping models that matter.
-                </p>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Data Scientist</span>
-                        <span class="experience-date">Apr 2025 - Present</span>
-                    </div>
-                    <div class="experience-company"><img src="images/QuaEra logo.jfif" alt="" class="company-logo"><a
-                            href="https://quaerainsights.com/">QuaEra Insights</a> · New York, NY, USA (Remote)</div>
-                    <ul>
-                        <li>Improved Aignyte's AI decisioning engine; delivered +200% lift in response rate for a
-                            Fortune 500 client</li>
-                        <li>Led five proof-of-value projects, achieving ~50% average improvement in response rates</li>
-                        <li>Built a proprietary "creative genome" system using LLMs (LangChain/LangGraph), XGBoost</li>
-                        <li>Managed end-to-end ML lifecycle on Azure Databricks and AWS</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Graduate Research Assistant</span>
-                        <span class="experience-date">Oct 2023 - Jan 2025</span>
-                    </div>
-                    <div class="experience-company"><img src="images/Lopatkin_Lab.png" alt="" class="company-logo"><a
-                            href="https://lopatkinlab.com/">University of Rochester - Lopatkin Lab</a> · Rochester, NY,
-                        USA</div>
-                    <ul>
-                        <li>Co-developed <a href="https://pypi.org/project/plasann/">PlasAnn</a>, a plasmid annotation
-                            tool; released via PyPI</li>
-                        <li>Developed reproducible bioinformatics pipelines using Python & R on Linux HPC cluster</li>
-                        <li>Co-authored peer-reviewed papers on plasmid prevalence and annotation methods</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Data Science Intern</span>
-                        <span class="experience-date">Sep 2024 - Dec 2024</span>
-                    </div>
-                    <div class="experience-company"><img src="images/macroX logo.jfif" alt="" class="company-logo"><a
-                            href="https://macroxstudio.com/">MacroXStudio</a> · San Francisco, CA, USA (Remote)</div>
-                    <ul>
-                        <li>Built a Python-based data analysis copilot using ChatGPT + fine-tuned LLaMA 3.3</li>
-                        <li>Designed a modular, agentic LLM framework and benchmarked 4 pipeline variants</li>
-                        <li>Productionized the top-performing stack; projected to save 200+ person-hours/month</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Teaching Assistant</span>
-                        <span class="experience-date">Jan 2024 - Apr 2024</span>
-                    </div>
-                    <div class="experience-company"><img src="images/simonbusinessschool_logo.jfif" alt=""
-                            class="company-logo"><a href="https://simon.rochester.edu/">UR Simon Business School</a> ·
-                        Rochester, NY, USA</div>
-                    <p>Teaching Assistant for GBA465 - Python Analytics for R Programmers.</p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Associate Manager, Digitization & Analytics</span>
-                        <span class="experience-date">Jul 2021 - Jun 2023</span>
-                    </div>
-                    <div class="experience-company"><img src="images/vedanta logopng.png" alt="" class="company-logo"><a
-                            href="https://vedantaaluminium.com/">Vedanta Limited</a> · Jharsuguda, Odisha, India</div>
-                    <ul>
-                        <li>Optimized coal procurement using time-series forecasting; saved $18M+; received CEO
-                            Appreciation Award</li>
-                        <li>Developed power price forecasting model; boosted boiler efficiency 5%</li>
-                        <li>Improved aluminium product quality and domestic market share 3%</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Undergraduate Research Assistant</span>
-                        <span class="experience-date">Jun 2019 - Dec 2020</span>
-                    </div>
-                    <div class="experience-company"><img src="images/IIT_Kanpur_Logo.svg.png" alt=""
-                            class="company-logo"><a href="https://www.iitk.ac.in/">IIT Kanpur</a> · Kanpur, UP, India
-                    </div>
-                    <p>Created a custom vision algorithm to track colloidal particles; achieved ≈95% tracking accuracy.
-                    </p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Data Science Intern</span>
-                        <span class="experience-date">Apr 2020 - Jul 2020</span>
-                    </div>
-                    <div class="experience-company"><img src="images/kpit logo.png" alt="" class="company-logo"><a
-                            href="https://www.kpit.com/">KPIT Technologies</a> · Pune, MH, India (Remote)</div>
-                    <p>Developed ML model to predict remaining engine oil life; XGBoost performed best (R² = 0.9).</p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <span class="experience-title">Visiting Research Fellow</span>
-                        <span class="experience-date">Dec 2019 - Jan 2020</span>
-                    </div>
-                    <div class="experience-company"><img src="images/TPU_new_logo_en.png" alt="" class="company-logo"><a
-                            href="https://tpu.ru/en/">Tomsk Polytechnic University</a> · Tomsk, Russia</div>
-                    <p>Built deep-learning application (ENet) for real-time semantic segmentation; achieved 67% mean
-                        IoU.</p>
-                </div>
-            </section>
-
-            <section id="publications" class="reveal">
-                <span class="track-label">Side Two &middot; Echoes</span>
-                <h2>Publications</h2>
-                <p class="lyric">
-                    "Overhead the albatross hangs motionless upon the air&hellip;"
-                </p>
-
-                <div class="publication-item">
-                    <div class="publication-title">PlasAnn: a curated plasmid-specific database and annotation pipeline
-                        for standardized gene and function analysis</div>
-                    <div class="publication-authors">Habibul Islam, Abhishek Sharma, Jordan Blair, Allison J Lopatkin
-                    </div>
-                    <div class="publication-venue">Nucleic Acids Research, Volume 54, Issue 3 · Published 27 January
-                        2026</div>
-                    <a href="https://academic.oup.com/nar/article/54/3/gkaf1507/8442276">View Publication →</a>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-title">Plasmid prevalence is independent of antibiotic resistance in
-                        environmental Enterobacteriaceae</div>
-                    <div class="publication-authors">Danya Gewurz, Suhyeon Kim, Lorenza Bartu, Abhishek Sharma, Joanna
-                        Ciol Harrison, Ivan Lee, Nicole C. Rondeau, JJ L. Miranda, Brian J. Mailloux, Kerry A. Hamilton,
-                        Allison J. Lopatkin</div>
-                    <div class="publication-venue">Microbial Genomics, Volume 11, Issue 8 · Published 12 August 2025
-                    </div>
-                    <a href="https://doi.org/10.1099/mgen.0.001453">View Publication →</a>
-                </div>
-            </section>
-
-            <section id="skills" class="reveal">
-                <span class="track-label">Side Two &middot; Another Brick in the Wall</span>
-                <h2>Skills &amp; Tools</h2>
-                <p class="lyric">
-                    "All in all, it's just another brick in the wall." &mdash; each one below lights up when you touch it.
-                </p>
-                <p><strong>Focus Areas:</strong> Recommendation systems, personalization & decisioning, deep learning,
-                    LLMs & generative AI, experimental design & A/B testing.</p>
-                <ul class="skills-list">
-                    <li>Python</li>
-                    <li>SQL</li>
-                    <li>PyTorch</li>
-                    <li>TensorFlow</li>
-                    <li>XGBoost</li>
-                    <li>LangChain</li>
-                    <li>MLflow</li>
-                    <li>Azure</li>
-                    <li>AWS</li>
-                    <li>Databricks</li>
-                    <li>Power BI</li>
-                    <li>Streamlit</li>
-                    <li>Git</li>
-                    <li>Docker</li>
-                </ul>
-            </section>
-
-            <footer>
-                <div class="pulse-wrap">
-                    <canvas id="pulse-canvas" aria-hidden="true"></canvas>
-                    <div class="pulse-caption">the heartbeat &middot; 62 bpm &middot; the dark side of the moon, 1973</div>
-                </div>
-                <div class="footer-spectrum"></div>
-                <p class="footer-quote">
-                    "And everything under the sun is in tune, but the sun is eclipsed by the moon."
-                </p>
-                <p>© 2025 Abhishek Sharma · <a href="mailto:abhishariitk@gmail.com">abhishariitk@gmail.com</a></p>
-            </footer>
+            <hr>
+            <p>Read more about my <a href="work.html">work</a>, see what I do <a href="personal.html">outside of
+                    it</a>, or find me on <a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a> and <a
+                    href="https://github.com/sabhi-29">GitHub</a>.</p>
         </main>
+
+        <footer>
+            <hr>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a> |
+                <a href="https://github.com/sabhi-29">GitHub</a> |
+                <a href="https://twitter.com/abhidiculous">Twitter</a> |
+                <a href="https://abhi291099.medium.com/">Medium</a> |
+                <a href="mailto:abhishariitk@gmail.com">Email</a>
+            </div>
+            <div class="copyright">&copy; 2026 <a href="index.html">Abhishek Sharma</a>. All rights reserved.</div>
+        </footer>
     </div>
-
-    <script src="fx.js"></script>
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
-        }
-
-        // Close sidebar when clicking a link on mobile
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
-                    document.getElementById('sidebar').classList.remove('open');
-                }
-            });
-        });
-
-        // Hide loader when page loads (with a safety timeout so it never lingers)
-        const hideLoader = () => document.getElementById('page-loader').classList.add('hidden');
-        window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 2500);
-
-        // Reveal sections on scroll
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // Rotating "Now Spinning" — the Floyd discography
-        const albums = [
-            'The Dark Side of the Moon',
-            'Wish You Were Here',
-            'The Wall',
-            'Animals',
-            'Meddle',
-            'The Division Bell',
-            'A Momentary Lapse of Reason',
-            'Atom Heart Mother'
-        ];
-        let albumIdx = 0;
-        const albumEl = document.getElementById('now-spinning-album');
-        setInterval(() => {
-            albumEl.classList.add('fading');
-            setTimeout(() => {
-                albumIdx = (albumIdx + 1) % albums.length;
-                albumEl.textContent = albums[albumIdx];
-                albumEl.classList.remove('fading');
-            }, 600);
-        }, 4000);
-    </script>
-
 </body>
 
 </html>

@@ -5,302 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal — Abhishek Sharma</title>
-    <meta name="description" content="Photography, music, guitar, writings, and a lot of Pink Floyd.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="Photography, music, guitar, and writings.">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="android-chrome-192x192.png">
-    <style>
-        /* Lightbox styles */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.94);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
-
-    <!-- 3D neural constellation + aurora fields -->
-    <canvas id="bg-canvas" aria-hidden="true"></canvas>
-    <div class="aurora aurora-1" aria-hidden="true"></div>
-    <div class="aurora aurora-2" aria-hidden="true"></div>
-    <div class="aurora aurora-3" aria-hidden="true"></div>
-    <!-- Readability scrim: dims the network behind the text column;
-         lifts while the classifier is running -->
-    <div class="bg-scrim" aria-hidden="true"></div>
-
-    <!-- Page Loader -->
-    <div id="page-loader">
-        <div class="loader-spectrum"></div>
-        <div class="loader-text">breathe</div>
-    </div>
-
-    <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
-
-    <div class="layout">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-profile">
-                <img src="new_headshot.jfif" alt="Abhishek Sharma" class="sidebar-photo">
-                <div class="sidebar-name">Abhishek Sharma</div>
-                <div class="sidebar-title">Data Scientist &amp; ML Engineer</div>
-                <div class="sidebar-divider"></div>
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="index.html">About</a></li>
-                    <li><a href="index.html#experience">Experience</a></li>
-                    <li><a href="index.html#publications">Publications</a></li>
-                    <li><a href="index.html#skills">Skills</a></li>
-                    <li><a href="personal.html" class="active">Personal</a></li>
-                    <li><a href="Resume_Jan25.pdf">Resume</a></li>
-                </ul>
-            </nav>
-
-            <div class="now-spinning">
-                <span class="label">Now Spinning</span>
-                <span class="album" id="now-spinning-album">Wish You Were Here</span>
-            </div>
-
-            <ul class="sidebar-social">
-                <li><a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a></li>
-                <li><a href="https://github.com/sabhi-29">GitHub</a></li>
-                <li><a href="https://twitter.com/abhidiculous">X</a></li>
-                <li><a href="mailto:abhishariitk@gmail.com">Email</a></li>
+    <div class="wrap">
+        <header class="header">
+            <h1 class="site-title"><a href="index.html">Abhishek Sharma</a></h1>
+            <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="personal.html" class="active">Personal</a></li>
+                <li><a href="Resume_Jan25.pdf">Resume</a></li>
             </ul>
-        </aside>
+        </header>
 
-        <!-- Main Content -->
         <main>
-            <section class="reveal">
-                <span class="track-label">Side One &middot; Wish You Were Here</span>
-                <h1>Personal</h1>
-                <p class="lyric">
-                    "So, so you think you can tell heaven from hell?" &mdash; here's the stuff beyond the résumé.
-                </p>
-                <p>
-                    Beyond work, I'm an avid photographer, a novice writer (both tech and non-tech), and I love playing
-                    the guitar. I enjoy capturing moments through my lens and occasionally put thoughts into words.
-                </p>
-            </section>
+            <hr>
+            <p>Beyond work, I'm an avid photographer, a novice writer (both tech and non-tech), and I love playing the
+                guitar.</p>
 
-            <section id="music" class="reveal">
-                <span class="track-label">Side One &middot; Shine On</span>
-                <h2>Music &amp; Pink Floyd</h2>
-                <p class="lyric">
-                    "Remember when you were young? You shone like the sun." &mdash; Shine On You Crazy Diamond
-                </p>
-                <div class="vinyl-row">
-                    <div class="vinyl" aria-hidden="true"></div>
-                    <div>
-                        <p>
-                            Progressive rock is my home, and <strong>Pink Floyd</strong> is the band that never leaves the
-                            turntable. <em>Wish You Were Here</em>, <em>The Dark Side of the Moon</em>, and
-                            <em>Animals</em> are on constant rotation &mdash; the perfect soundtrack for long nights of
-                            model training and longer nights of just listening.
-                        </p>
-                        <p>
-                            I play the guitar too &mdash; mostly acoustic covers and a few originals. There's a certain
-                            overlap between a good Gilmour solo and a clean, well-tuned pipeline: both are about knowing
-                            which notes to leave out. Catch my guitar videos on Instagram
-                            <a href="https://www.instagram.com/lightscameraguitar/">@lightscameraguitar</a>.
-                        </p>
-                    </div>
-                </div>
-
-                <iframe class="spotify-embed"
-                    style="border-radius:12px" src="https://open.spotify.com/embed/album/4LH4d3cOWNNsVw41Gqt2kv?utm_source=generator&theme=0"
-                    height="352" frameborder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            <div class="entry">
+                <h2>Music</h2>
+                <p>Progressive rock is my home, and <strong>Pink Floyd</strong> is the band that never leaves the
+                    turntable. <em>Wish You Were Here</em>, <em>The Dark Side of the Moon</em>, and <em>Animals</em>
+                    are on constant rotation.</p>
+                <p>I play the guitar too, mostly acoustic covers and a few originals. Catch my guitar videos on
+                    Instagram at <a href="https://www.instagram.com/lightscameraguitar/">@lightscameraguitar</a>.</p>
+                <iframe class="embed"
+                    src="https://open.spotify.com/embed/album/4LH4d3cOWNNsVw41Gqt2kv?utm_source=generator&theme=0"
+                    height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy" title="The Dark Side of the Moon on Spotify"></iframe>
+            </div>
 
-                <p style="color: var(--text-muted); font-size: 0.9rem;">
-                    Give it a spin while you browse. Best experienced with the lights low.
-                </p>
-            </section>
-
-            <section id="photography" class="reveal">
-                <span class="track-label">Side One &middot; Any Colour You Like</span>
+            <div class="entry">
                 <h2>Photography</h2>
-                <p class="lyric">
-                    "The lunatic is on the grass&hellip;" &mdash; landscapes, architecture, and candid light.
-                </p>
-                <p>
-                    Here are some of my favorite shots. I love capturing landscapes, architecture, and candid moments.
-                    Check out more on my photography Instagram <a
-                        href="https://www.instagram.com/lights.cameraclick/">@lights.cameraclick</a>.
-                </p>
-                <div class="photo-gallery">
-                    <img src="27575265_182732342491614_2959502706286264320_n.jpg" alt="Photography"
-                        onclick="openLightbox(this.src)">
-                    <img src="40230140_537982330004968_8536922676992034736_n.jpg" alt="Photography"
-                        onclick="openLightbox(this.src)">
-                    <img src="83804213_195132721847227_8730246960916447551_n.jpg" alt="Photography"
-                        onclick="openLightbox(this.src)">
-                    <img src="EDIT 2.jpg" alt="Photography" onclick="openLightbox(this.src)">
+                <p>I love capturing landscapes, architecture, and candid moments. More on my photography Instagram, <a
+                        href="https://www.instagram.com/lights.cameraclick/">@lights.cameraclick</a>.</p>
+                <div class="photos">
+                    <a href="27575265_182732342491614_2959502706286264320_n.jpg"><img
+                            src="27575265_182732342491614_2959502706286264320_n.jpg" alt="Photograph"></a>
+                    <a href="40230140_537982330004968_8536922676992034736_n.jpg"><img
+                            src="40230140_537982330004968_8536922676992034736_n.jpg" alt="Photograph"></a>
+                    <a href="83804213_195132721847227_8730246960916447551_n.jpg"><img
+                            src="83804213_195132721847227_8730246960916447551_n.jpg" alt="Photograph"></a>
+                    <a href="EDIT 2.jpg"><img src="EDIT 2.jpg" alt="Photograph"></a>
                 </div>
-            </section>
+            </div>
 
-            <section id="writings" class="reveal">
-                <span class="track-label">Side Two &middot; Brain Damage</span>
+            <div class="entry">
                 <h2>Writings</h2>
-                <p class="lyric">
-                    "And if the band you're in starts playing different tunes&hellip;"
-                </p>
-                <p>
-                    I share thoughts and articles on <a href="https://abhi291099.medium.com/">Medium</a>. Here are some
-                    pieces I've written:
-                </p>
+                <p>I share thoughts and articles on <a href="https://abhi291099.medium.com/">Medium</a>.</p>
+                <ul>
+                    <li><a href="https://abhi291099.medium.com/the-battle-4f70d8938401">The Battle</a>: A reflection on
+                        inner struggles and the fight we all face within ourselves.</li>
+                    <li><a href="https://abhi291099.medium.com/cosmic-friendship-8e7cde684d91">Cosmic Friendship</a>:
+                        Exploring the nature of connections that transcend time and space.</li>
+                    <li><a href="https://abhi291099.medium.com/">More on Medium</a></li>
+                </ul>
+            </div>
 
-                <div class="article-item">
-                    <div class="article-title"><a href="https://abhi291099.medium.com/the-battle-4f70d8938401">The
-                            Battle</a></div>
-                    <p class="article-excerpt">A reflection on inner struggles and the fight we all face within
-                        ourselves.</p>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title"><a
-                            href="https://abhi291099.medium.com/cosmic-friendship-8e7cde684d91">Cosmic Friendship</a>
-                    </div>
-                    <p class="article-excerpt">Exploring the nature of connections that transcend time and space.</p>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title"><a href="https://abhi291099.medium.com/">More on Medium →</a></div>
-                    <p class="article-excerpt">Browse all my articles on tech, life, and everything in between.</p>
-                </div>
-            </section>
-
-            <section id="connect" class="reveal">
-                <span class="track-label">Side Two &middot; Outro</span>
-                <h2>Connect</h2>
-                <div class="connect-list">
-                    <div>Photography: <a href="https://www.instagram.com/lights.cameraclick/">@lights.cameraclick</a>
-                    </div>
-                    <div>Guitar: <a href="https://www.instagram.com/lightscameraguitar/">@lightscameraguitar</a></div>
-                    <div>Personal: <a href="https://www.instagram.com/abhidiculous/">@abhidiculous</a></div>
-                </div>
-            </section>
-
-            <footer>
-                <div class="pulse-wrap">
-                    <canvas id="pulse-canvas" aria-hidden="true"></canvas>
-                    <div class="pulse-caption">the heartbeat &middot; 62 bpm &middot; the dark side of the moon, 1973</div>
-                </div>
-                <div class="footer-spectrum"></div>
-                <p class="footer-quote">
-                    "We're just two lost souls swimming in a fish bowl, year after year."
-                </p>
-                <p>© 2025 Abhishek Sharma · <a href="mailto:abhishariitk@gmail.com">abhishariitk@gmail.com</a></p>
-            </footer>
+            <div class="entry">
+                <h2>Elsewhere</h2>
+                <ul>
+                    <li>Photography: <a href="https://www.instagram.com/lights.cameraclick/">@lights.cameraclick</a>
+                    </li>
+                    <li>Guitar: <a href="https://www.instagram.com/lightscameraguitar/">@lightscameraguitar</a></li>
+                    <li>Personal: <a href="https://www.instagram.com/abhidiculous/">@abhidiculous</a></li>
+                </ul>
+            </div>
         </main>
+
+        <footer>
+            <hr>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/sabhi29/">LinkedIn</a> |
+                <a href="https://github.com/sabhi-29">GitHub</a> |
+                <a href="https://twitter.com/abhidiculous">Twitter</a> |
+                <a href="https://abhi291099.medium.com/">Medium</a> |
+                <a href="mailto:abhishariitk@gmail.com">Email</a>
+            </div>
+            <div class="copyright">&copy; 2026 <a href="index.html">Abhishek Sharma</a>. All rights reserved.</div>
+        </footer>
     </div>
-
-    <!-- Lightbox for enlarged photos -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="Enlarged photo">
-    </div>
-
-    <script src="fx.js"></script>
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
-        }
-
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
-                    document.getElementById('sidebar').classList.remove('open');
-                }
-            });
-        });
-
-        function openLightbox(src) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox').classList.add('active');
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        // Close on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
-        });
-
-        // Hide loader when page loads (with a safety timeout so it never lingers)
-        const hideLoader = () => document.getElementById('page-loader').classList.add('hidden');
-        window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 2500);
-
-        // Reveal sections on scroll
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // Rotating "Now Spinning"
-        const albums = [
-            'Wish You Were Here',
-            'The Dark Side of the Moon',
-            'The Wall',
-            'Animals',
-            'Meddle',
-            'The Division Bell',
-            'Obscured by Clouds',
-            'The Piper at the Gates of Dawn'
-        ];
-        let albumIdx = 0;
-        const albumEl = document.getElementById('now-spinning-album');
-        setInterval(() => {
-            albumEl.classList.add('fading');
-            setTimeout(() => {
-                albumIdx = (albumIdx + 1) % albums.length;
-                albumEl.textContent = albums[albumIdx];
-                albumEl.classList.remove('fading');
-            }, 600);
-        }, 4000);
-    </script>
-
 </body>
 
 </html>
